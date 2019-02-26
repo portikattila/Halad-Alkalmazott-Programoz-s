@@ -1,1 +1,1 @@
-# Halad-Alkalmazott-Programoz-s
+# Haladó Alkalmazott Programozás
