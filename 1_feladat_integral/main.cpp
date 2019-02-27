@@ -10,7 +10,7 @@ int main()
 
     double x0, x1;
     double a = 1.34638795680345037669816;
-
+    // x1 = 3; x0 = -1; eltérés számítása estén 
     std::cout << "x0 = ";
     std::cin >> x0;
     std::cout << "x1 = ";
