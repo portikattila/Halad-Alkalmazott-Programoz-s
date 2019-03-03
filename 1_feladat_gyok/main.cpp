@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 double sqrt_newton(double num, double x0);
 double step(double num, double x);
