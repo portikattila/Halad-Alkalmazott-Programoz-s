@@ -122,7 +122,7 @@ int main(int,char**)
         matrix<double> B0 = {7.1, 15.2, 11.3, 13.4};
         matrix<double> B1 = {7.1, 15.2, 11.3, 13.4};
         matrix<double> B2 = {7.1, 15.2, 11.3, 13.4};
-        matrix<double> C{10.2, 20.4, 20.6, 20.9}; // WolframAlpha - val számolva
+        matrix<double> C{{10.2, 20.4, 20.6, 20.9}}; // WolframAlpha - val számolva
 
         {
             matrix<double> R{A0 + B0};
@@ -153,7 +153,7 @@ int main(int,char**)
         matrix<double> B0 = {7.1, 15.2, 11.3, 13.4};
         matrix<double> B1 = {7.1, 15.2, 11.3, 13.4};
         matrix<double> B2 = {7.1, 15.2, 11.3, 13.4};
-        matrix<double> C{-4, -10, 2, -5.9}; // WolframAlpha - val számolva
+        matrix<double> C{{-4, -10, 2, -5.9}}; // WolframAlpha - val számolva
 
         {
             matrix<double> R{A0 - B0};
@@ -184,7 +184,7 @@ int main(int,char**)
         matrix<double> B0 = {7.1, 15.2, 11.3, 13.4};
         matrix<double> B1 = {7.1, 15.2, 11.3, 13.4};
         matrix<double> B2 = {7.1, 15.2, 11.3, 13.4};
-        matrix<double> C{80.77, 116.8, 179.18, 302.66}; // WolframAlpha - val számolva
+        matrix<double> C{{80.77, 116.8, 179.18, 302.66}}; // WolframAlpha - val számolva
 
         {
             matrix<double> R{A0 * B0};
@@ -212,7 +212,7 @@ int main(int,char**)
         matrix<double> A0 = {3.1, 5.2, 13.3, 7.5};
         matrix<double> A1 = {3.1, 5.2, 13.3, 7.5};
         double a{1.7};
-        matrix<double> C{5.27, 8.84, 22.61, 12.75}; // WolframAlpha - val számolva
+        matrix<double> C{{5.27, 8.84, 22.61, 12.75}}; // WolframAlpha - val számolva
 
         {
             matrix<double> R{A0 * a} ;
@@ -240,7 +240,7 @@ int main(int,char**)
     {
         matrix<double> A = {3.8, 5.5, 13.4, 7.5};
         double a{2};
-        matrix<double> C{1.9, 2.75, 6.7, 3.75}; // WolframAlpha - val számolva
+        matrix<double> C{{1.9, 2.75, 6.7, 3.75}}; // WolframAlpha - val számolva
 
         {
             matrix<double> R{std::move(A / a)};
@@ -257,11 +257,11 @@ int main(int,char**)
     {
         matrix<double> A = {3.1, 5.2, 9.3, 7.5};
         matrix<double> B = {7.1, 15.2, 11.3, 13.4};
-        matrix<double> C0{10.2, 20.4, 20.6, 20.9}; // WolframAlpha - val számolva
-        matrix<double> C1{-4, -10, -2, -5.9};
-        matrix<double> C2{1.55, 2.6, 4.65, 3.75};
-        matrix<double> C3{6.2, 10.4, 18.6, 15};
-        matrix<double> C4{80.77, 116.8, 179.18, 302.66};
+        matrix<double> C0 = {10.2, 20.4, 20.6, 20.9}; // WolframAlpha - val számolva
+        matrix<double> C1 = {-4, -10, -2, -5.9};
+        matrix<double> C2 = {1.55, 2.6, 4.65, 3.75};
+        matrix<double> C3 = {6.2, 10.4, 18.6, 15};
+        matrix<double> C4 = {80.77, 116.8, 179.18, 302.66};
         double a{2};
         {
             matrix<double> A0{A};
