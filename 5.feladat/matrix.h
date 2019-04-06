@@ -71,7 +71,7 @@ template <typename T>
 void matrix_multiplication3( int N, std::vector<T> const& mat1, std::vector<T>& mat2)
 {
     std::vector<T> temp;
-    temp.resize(N);
+    temp.resize(N * N);
     for(int i{0}; i < N; i++)
     {
         for(int j{0}; j < N; j++)
@@ -81,15 +81,12 @@ void matrix_multiplication3( int N, std::vector<T> const& mat1, std::vector<T>& 
             {
                 temp_val += mat1[N * i + k] * mat2[N * k + j];
             }
-            temp[j] = temp_val;
+            temp[N * i + j] = temp_val;
         }
-
-        for (int l{0}; l < N; l++)
-        {
-            mat2[i * N + l] = temp[l];
-        }   
-    } 
+    }
+    std::swap(mat2, temp); 
 } 
+
 auto add = [](auto const& x, auto const& y){return x+y;};
 auto sub = [](auto const& x, auto const& y){return x-y;};
 
