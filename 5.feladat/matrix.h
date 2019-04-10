@@ -259,7 +259,7 @@ public:
     matrix(matrix const&) = default;
     matrix(matrix&& mv) = default;
     matrix<T>& operator= (matrix const&) = default;
-	matrix<T>& operator= (matrix&& mat) = default;
+    matrix<T>& operator= (matrix&& mat) = default;
 
     matrix(int const& d,  std::initializer_list<T> const&  m)
     {   
