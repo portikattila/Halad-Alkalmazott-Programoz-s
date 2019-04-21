@@ -115,16 +115,19 @@ int main(int,char**)
         {
             matrix<double> R{A0 + std::move(B1)};
             if(!check(R,C)){ err("addition test [const& - &&]"); }
+	    if(B1.size() != 0){ err("addition test [const& - &&]");}
         }
 
         {
             matrix<double> R{std::move(A1) + B0};
             if(!check(R,C)){ err("addition test [&& - const&]"); }
+            if(A1.size() != 0){ err("addition test [&& - const&]");} 
         }
 
         {
             matrix<double> R{std::move(A2) + std::move(B2)};
             if(!check(R,C)){ err("addition test [&& - &&]"); }
+            if(A2.size() != 0){ err("addition test [&& - &&]");}
         }
         
     }
@@ -146,17 +149,20 @@ int main(int,char**)
         {
             matrix<double> R{A0 - std::move(B1)};
             if(!check(R,C)){ err("subtraction test [const& - &&]"); }
+            if(B1.size() != 0){ err("subtraction test [const& - &&]");}
         }
 
         {
             matrix<double> R{std::move(A1) - B0};
             if(!check(R,C)){ err("subtraction test [&& - const&]"); }
+            if(A1.size() != 0){ err("subtraction test [&& - const&]");} 
         }
 
         {
             matrix<double> R{std::move(A2) - std::move(B2)};
             if(!check(R,C)){ err("subtraction test [&& - &&]"); }
-        }
+            if(A2.size() != 0){ err("subtraction test [&& - &&]");}
+           }
         
     }
 
@@ -171,22 +177,25 @@ int main(int,char**)
 
         {
             matrix<double> R{A0 * B0}; 
-            //if(!check(R,C)){ err("multiplication by matrix test [const& - const&]"); }
+            if(!check(R,C)){ err("multiplication by matrix test [const& - const&]"); }
         }
 
         {
             matrix<double> R{A0 * std::move(B0)};
             if(!check(R,C)){ err("multiplication by matrix test [const& - &&]"); }
+            if(B0.size() != 0){ err("multiplication by matrix test [const& - &&]");}
         }
 
         {
             matrix<double> R{std::move(A1) * B1};
             if(!check(R,C)){ err("multiplication by matrix test [&& - const&]"); }
+            if(A1.size() != 0){ err("multiplication by matrix test [&& - const&]");}
         }
 
         {
-            matrix<double> R{std::move(A2) * std::move(B2)};
+            matrix<double> R = std::move(A2) * std::move(B2);
             if(!check(R,C)){ err("multiplication by matrix test [&& - &&]"); }
+            if(A2.size() != 0){ err("multiplication by matrix test [&& - &&]");}
         }
         
     }
@@ -209,13 +218,15 @@ int main(int,char**)
 
 
         {
-            matrix<double> R{std::move(std::move(A0) * a)};
+            matrix<double> R{std::move(A0) * a};
             if(!check(R,C)){ err("multiplication by scalar test"); }
+            if(A0.size() != 0){ err("multiplication by scalar test");}
         }
 
         {
             matrix<double> R{a * std::move(A1)};
             if(!check(R,C)){ err("multiplication by scalar test"); }
+            if(A1.size() != 0){ err("multiplication by scalar test");}
         }
         
     }
@@ -233,6 +244,7 @@ int main(int,char**)
         {
             matrix<double> R{std::move(A) / a};
             if(!check(R,C)){ err("division  by scalar test"); }
+            if(A.size() != 0){ err("division by scalar test");}
         }
         
     }
