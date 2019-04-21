@@ -226,7 +226,7 @@ int main(int,char**)
         matrix<double> C{2,{1.9, 2.75, 6.7, 3.75}}; // WolframAlpha - val számolva
        
         {
-            matrix<double> R{std::move(A / a)};
+            matrix<double> R{A / a};
             if(!check(R,C)){ err("division  by scalar test"); }
         }
 

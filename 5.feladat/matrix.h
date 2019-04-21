@@ -26,12 +26,12 @@ namespace detail
 
 
 template <typename T>
-void matrix_multiplication(int N, std::vector<T>  mat1, std::vector<T> mat2, std::vector<T> result)
+void matrix_multiplication(int N, std::vector<T> const& mat1, std::vector<T> const& mat2, std::vector<T> & result)
 {
+    std::vector<T> temp;
+    temp.resize(N);
     if(&result == &mat2)
     {
-        std::vector<T> temp;
-        temp.resize(N);
         for(int i{0}; i < N; i++)
         {
             for(int j{0}; j < N; j++)
@@ -50,8 +50,6 @@ void matrix_multiplication(int N, std::vector<T>  mat1, std::vector<T> mat2, std
         }    
     }else
     {
-        std::vector<T> temp;
-        temp.resize(N);
         for(int i{0}; i < N; i++)
         {
             for(int j{0}; j < N; j++)
@@ -387,9 +385,7 @@ matrix<T> && operator/(matrix<T> && mat, T const& s)
 template<typename T>
 matrix<T> operator*(matrix<T> const& mat1, matrix<T> const& mat2)
 {
-    matrix<T> r;
-    r.dim = mat1.dim;
-    r.data.resize(mat1.dim * mat1.dim);
+    matrix<T> r{mat1.dim};
     matrix_multiplication(mat1.dim, mat1.data, mat2.data, r.data);
     return r;
 }
@@ -423,11 +419,11 @@ bool check(matrix<T> const& mat1, matrix<T> const& mat2)
     {
         return false;
     }
-    if (mat1.dim != std::sqrt((mat1.data).size()))
+    if (mat1.dim * mat1.dim != (mat1.data).size())
     {
         return false;
     }
-    if (mat2.dim != std::sqrt((mat2.data).size()))
+    if (mat2.dim  * mat2.dim != (mat2.data).size())
     {
         return false;
     }
@@ -463,7 +459,6 @@ std::ostream& operator<<(std::ostream& o, matrix<T> & mat)
 	return o;
 }
 //>>
-
 template<typename T>
 std::istream& operator>>(std::istream& i, matrix<T>& mat)
 {
@@ -478,14 +473,22 @@ std::istream& operator>>(std::istream& i, matrix<T>& mat)
         std::istringstream iss{s};
         if(s.size() == 0)
         {
+            i.clear();  
             i.seekg(pos);
             i.setstate(state);
             return i;
         }
-        std::copy(std::istream_iterator<double>(iss), std::istream_iterator<double>(), std::back_inserter(v));
+        std::copy(std::istream_iterator<T>(iss), std::istream_iterator<T>(), std::back_inserter(v));
     }
-    int a  = std::sqrt(static_cast<int>(v.size()));
-    mat = {a, std::move(v)};
-    
+    long double a  = std::sqrt(static_cast<int>(v.size()));
+    if(((a - std::floor(a)) == 0))
+    {
+        mat = {(int)a, std::move(v)};
+    }else
+    {
+        i.clear();  
+        i.seekg(pos);
+        i.setstate(state);
+    }
     return i;
 }

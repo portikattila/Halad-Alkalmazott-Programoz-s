@@ -15,17 +15,10 @@ int main(int, char**)
     {
         int N = k;
         long long t{0};
-        for(int j{0}; j < 50; j++)
+        for(int j{0}; j < 10; j++)
         {
-            std::vector<double> temp1;
-            std::vector<double> temp2;
-            for(int i{0}; i < N * N; i++)
-            {
-                temp1.push_back(distr(gen));
-                temp2.push_back(distr(gen));
-            }
-            matrix<double> mat1{N, temp1};
-            matrix<double> mat2{N, temp2};
+            matrix<double> mat1{[&](int i, int j){return distr(gen);}, N};
+            matrix<double> mat2{[&](int i, int j){return distr(gen);}, N};
             auto t1 = std::chrono::high_resolution_clock::now();
             mat1 * mat2;
             auto t2 = std::chrono::high_resolution_clock::now();
@@ -37,5 +30,4 @@ int main(int, char**)
         std::ofstream ofile("data.txt", std::ios::out | std::ios::app); 
         ofile << N << " " << t << '\n'; 
     }
-    
 }
