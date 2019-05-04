@@ -219,7 +219,7 @@ void kernel(std::vector<particle> & r, T & t, T tmax, T h, double radius, T boxs
 
         for (unsigned k{0}; k < r.size(); k++)
         {
-            for (unsigned j{i + 1}; j < r.size(); j++)
+            for (unsigned j{k + 1}; j < r.size(); j++)
             {
                 collision(r[k], r[j], radius);
             }
