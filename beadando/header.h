@@ -153,7 +153,6 @@ void collision(particle & a, particle & b, T r)
         b.vy = b.vy - beta * (b-a).y;
         a.x = a.x + a.vx /std::abs(a.vx) * 2 * r;
         a.y = a.y + a.vy /std::abs(a.vy) * 2 * r;
-        std::cout << 'i';
     }    
 }
 
