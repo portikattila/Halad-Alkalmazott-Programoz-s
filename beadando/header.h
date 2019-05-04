@@ -179,7 +179,7 @@ std::vector<particle> initialize(int N, double boxsize, T temperature, T mass)
 template<typename T, typename animation, typename measurement>
 void kernel(std::vector<particle> & r, T & t, T tmax, T h, double radius, T boxsize, double g, animation an, measurement mp)
 {
-        auto gravity = [&g](double t, std::vector<particle> const& r)
+        auto gravity = [&g](double t, std::vector<particle> const& r)// meg csak allando gravitaciora
         {
         unsigned n = r.size();
             std::vector<particle> dr;
