@@ -1,0 +1,3 @@
+/home/portikattila/Documents/egyetem/cpp/beadando/build/CMakeFiles/rebuild_cache.dir
+/home/portikattila/Documents/egyetem/cpp/beadando/build/CMakeFiles/gas_in_gravitational_field.dir
+/home/portikattila/Documents/egyetem/cpp/beadando/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,25 @@
+Ideális gáz gravitációs térben
+
+A bemeneti paraméterek:
+
+N - a részecskék száma
+n - a pontok száma, ahol a nyomás és a hőmérséklet kiszámolódik, ezek a teljes térfogat alapja és teteje között egyenletes közönként helyezkednek el
+tmax - a szimuláció maximális ideje
+temperature - kezdeti hőmérséklet
+mass - a részescskék tömege
+radius - a részecskék sugara
+boxsize - a szimulációs térfogat lineáris mérete
+h - az időlépés hossza
+g - a gravitációs erőtörvényben szereplő konstansok
+dt0, dt - a 'mérés' kezdete és vége 
+
+A nyomás és a hőmérséklet meghatározására kétféle megközelítést probáltam alkalmazni:
+1. Egyenletes távolságban elhelyezkedő szinteken rögzítem az áthaladó részecskék sebességét és számát, ebböl becslést adva a nyomásra és a hőmérsékletre az össz impulzusuk és átlagos mozgási energiájuk alapján. Ez a fajta mérés zajlik dt0 és dt között, illetve a jobb egérgomb lenyomása után annak ismételt lenyomásáig. 
+2. A szimulációs térfogatnál jóval kisebb térfogatban rögzítem az oda bemenő részecskék össz impulzusát és átlagos mozgási energiáját. Ez a fajta mérés a bal egérgomb lenyomása után indul és annak ismételt lenyomásáig tart.
+
+Ezekből az adatokból a Kinetikus gázelmélet alapján számolom a keresett mennyiségeket.
+
+A program kimenete egy 'data' nevű mappában mentődik (ami létre kellene jöjjön a fordításkor).
+A kimentett fájlokban az első oszlop mindig a magasság, a második a számolt nyomás, a harmadik hőmérséklet.
+Az adatokról ábrák is készülnek, ehhez szükséges, hogy gnuplot telepítve legyen.
+A 'parameters.dat' fájlban vannak kimentve a szimuláció paraméterei és az ideális  illetve Van der Waals gáz állapotegyenletei alapján számolt becslések.

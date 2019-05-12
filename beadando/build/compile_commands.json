@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/portikattila/Documents/egyetem/cpp/beadando/build",
+  "command": "/usr/bin/g++-7    -g   -Wall -Wextra -pedantic -std=c++1z -o CMakeFiles/gas_in_gravitational_field.dir/main.cpp.o -c /home/portikattila/Documents/egyetem/cpp/beadando/main.cpp",
+  "file": "/home/portikattila/Documents/egyetem/cpp/beadando/main.cpp"
+}
+]
