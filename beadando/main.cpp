@@ -381,7 +381,7 @@ struct win
 
         });    
 
-        bool res = wnd.open(L"sym", {0, 0}, {w1, w1}, true, [&]{ return true; });
+        bool res = wnd.open(L"win", {0, 0}, {w1, w1}, true, [&]{ return true; });
 		return res ? 0 : -1;
 	}
 
